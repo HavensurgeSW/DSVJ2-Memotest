@@ -5,11 +5,11 @@ using UnityEngine;
 public class Flip : MonoBehaviour
 {
    
-    private bool isFlipped = false;
+ 
     private void OnMouseUp()
     {
         transform.Rotate(0,0, 180);
-        isFlipped = !isFlipped;
+       
         sendInfoToManager();
 
     }
@@ -19,7 +19,5 @@ public class Flip : MonoBehaviour
         GameManager.retrieveInfo(this.gameObject);
     }
 
-    void flip() {
-        OnMouseUp();
-    }
+   
 }

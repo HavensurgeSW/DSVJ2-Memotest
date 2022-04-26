@@ -17,10 +17,12 @@ public class GameManager : MonoBehaviour
     public static void retrieveInfo(GameObject card)
     {
 
-        if (card2 == null&&flippedCards==1)
+        if (card2 == null&&flippedCards==1&&card!=card2)
         {
+           
             card2 = card;
             flippedCards++;
+
             Debug.Log(card2.tag);
             
         }
@@ -41,11 +43,15 @@ public class GameManager : MonoBehaviour
             {
                 card1.SetActive(false);
                 card2.SetActive(false);
-                card1 = null;
-                card2 = null;
+                Debug.Log("Compare Succesful");
             }
             else {
+                card1.transform.Rotate(0, 0, 180);
+                card2.transform.Rotate(0, 0, 180);
+                Debug.Log("Compare fail");
             }
+            card1 = null;
+            card2 = null;
         }
 
     }
