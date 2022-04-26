@@ -4,9 +4,22 @@ using UnityEngine;
 
 public class Flip : MonoBehaviour
 {
-    private void OnMouseDown()
+   
+    private bool isFlipped = false;
+    private void OnMouseUp()
     {
-        Debug.Log("Funciona pls");
         transform.Rotate(0,0, 180);
+        isFlipped = !isFlipped;
+        sendInfoToManager();
+
+    }
+
+    void sendInfoToManager() {
+        //Debug.Log("SendInfo");
+        GameManager.retrieveInfo(this.gameObject);
+    }
+
+    void flip() {
+        OnMouseUp();
     }
 }
