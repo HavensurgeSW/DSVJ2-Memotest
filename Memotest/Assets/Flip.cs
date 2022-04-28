@@ -8,15 +8,18 @@ public class Flip : MonoBehaviour
  
     private void OnMouseUp()
     {
-        transform.Rotate(0,0, 180);
-       
-        sendInfoToManager();
-
+        FlipCard();
+        SendInfoToManager();
     }
 
-    void sendInfoToManager() {
+    private void SendInfoToManager() {
         //Debug.Log("SendInfo");
-        GameManager.retrieveInfo(this.gameObject);
+        GameManager.RetrieveInfo(gameObject);
+    }
+
+    private void FlipCard() {
+        if (GameManager.flipEnabler)
+            transform.Rotate(0, 0, 180);
     }
 
    
